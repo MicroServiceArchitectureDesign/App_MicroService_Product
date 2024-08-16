@@ -1,0 +1,2 @@
+﻿global using AppMicroServiceBuildingBlock.Contract.InfrastructureContracts.BaseConfigurations;
+global using AppMicroServiceProduct.Domain.Brands;

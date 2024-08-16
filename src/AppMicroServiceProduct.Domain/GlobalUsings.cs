@@ -1,0 +1,7 @@
+﻿global using AppMicroServiceBuildingBlock.Contract.DomainContracts.Entities;
+global using AppMicroServiceBuildingBlock.Contract.DomainContracts.Events;
+global using AppMicroServiceProduct.Domain.Brands.Events;
+global using AppMicroServiceBuildingBlock.Contract.DomainContracts.Enumerations.Base;
+global using AppMicroServiceBuildingBlock.Contract.DomainContracts.ValueObjects;
+global using AppMicroServiceBuildingBlock.Contract.DomainContracts.Exceptions;
+global using AppMicroServiceProduct.Domain.Products.ValueObjects;

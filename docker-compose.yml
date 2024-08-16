@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  product-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "6000:6000"
+      - "6001:6001"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTPS_PORT=https://+:6001      
+      - ASPNETCORE_URLS=http://+:6000   
+      - CONSUL_HOST=consul
+      - CONSUL_PORT=8500

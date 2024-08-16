@@ -1,0 +1,9 @@
+﻿namespace AppMicroServiceProduct.Domain.Products.Entities;
+
+public class ProductVideo : LongEntity
+{
+    public required string Name { get; set; }
+    public required string Extension { get; set; }
+    public long ProductId { get; set; }
+    public Product Product { get; set; } = null!;
+}

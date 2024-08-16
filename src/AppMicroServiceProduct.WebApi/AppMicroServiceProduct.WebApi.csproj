@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="ocelot.provider.consul" Version="23.3.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="AppMicroServiceBuildingBlock.Contract">
+      <HintPath>..\..\..\App_MicroService_BuildingBlock\src\AppMicroServiceBuildingBlock.Contract\bin\Debug\net8.0\AppMicroServiceBuildingBlock.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="AppMicroServiceBuildingBlock.Shared">
+      <HintPath>..\..\..\App_MicroService_BuildingBlock\src\AppMicroServiceBuildingBlock.Shared\bin\Debug\net8.0\AppMicroServiceBuildingBlock.Shared.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\AppMicroServiceProduct.Infrastructure\AppMicroServiceProduct.Infrastructure.csproj" />
+  </ItemGroup>
+  
+</Project>
