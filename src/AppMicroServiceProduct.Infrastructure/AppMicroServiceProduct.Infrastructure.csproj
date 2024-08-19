@@ -10,15 +10,6 @@
     <PackageReference Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="AppMicroServiceBuildingBlock.Contract">
-      <HintPath>..\..\..\App_MicroService_BuildingBlock\src\AppMicroServiceBuildingBlock.Contract\bin\Debug\net8.0\AppMicroServiceBuildingBlock.Contract.dll</HintPath>
-    </Reference>
-    <Reference Include="AppMicroServiceBuildingBlock.Shared">
-      <HintPath>..\..\..\App_MicroService_BuildingBlock\src\AppMicroServiceBuildingBlock.Shared\bin\Debug\net8.0\AppMicroServiceBuildingBlock.Shared.dll</HintPath>
-    </Reference>
-  </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\AppMicroServiceProduct.Application\AppMicroServiceProduct.Application.csproj" />

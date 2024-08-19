@@ -1,3 +1,3 @@
 [submodule "App_MicroService_BuildingBlock"]
 	path = App_MicroService_BuildingBlock
-	url = https://github.com/MicroServiceArchitectureDesign/App_MicroService_BuildingBlock
+	url = https://github.com/MicroServiceArchitectureDesign/App_MicroService_BuildingBlock.git

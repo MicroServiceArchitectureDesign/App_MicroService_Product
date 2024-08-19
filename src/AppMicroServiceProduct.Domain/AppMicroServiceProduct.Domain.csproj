@@ -5,12 +5,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="AppMicroServiceBuildingBlock.Contract">
-      <HintPath>..\..\..\App_MicroService_BuildingBlock\src\AppMicroServiceBuildingBlock.Contract\bin\Debug\net8.0\AppMicroServiceBuildingBlock.Contract.dll</HintPath>
-    </Reference>
-    <Reference Include="AppMicroServiceBuildingBlock.Shared">
-      <HintPath>..\..\..\App_MicroService_BuildingBlock\src\AppMicroServiceBuildingBlock.Shared\bin\Debug\net8.0\AppMicroServiceBuildingBlock.Shared.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\..\App_MicroService_BuildingBlock\src\AppMicroServiceBuildingBlock.Contract\AppMicroServiceBuildingBlock.Contract.csproj" />
+    <ProjectReference Include="..\..\App_MicroService_BuildingBlock\src\AppMicroServiceBuildingBlock.Shared\AppMicroServiceBuildingBlock.Shared.csproj" />
   </ItemGroup>
 </Project>

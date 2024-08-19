@@ -12,15 +12,6 @@
   </ItemGroup>
   
   <ItemGroup>
-    <Reference Include="AppMicroServiceBuildingBlock.Contract">
-      <HintPath>..\..\..\App_MicroService_BuildingBlock\src\AppMicroServiceBuildingBlock.Contract\bin\Debug\net8.0\AppMicroServiceBuildingBlock.Contract.dll</HintPath>
-    </Reference>
-    <Reference Include="AppMicroServiceBuildingBlock.Shared">
-      <HintPath>..\..\..\App_MicroService_BuildingBlock\src\AppMicroServiceBuildingBlock.Shared\bin\Debug\net8.0\AppMicroServiceBuildingBlock.Shared.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  
-  <ItemGroup>
     <ProjectReference Include="..\AppMicroServiceProduct.Infrastructure\AppMicroServiceProduct.Infrastructure.csproj" />
   </ItemGroup>
   

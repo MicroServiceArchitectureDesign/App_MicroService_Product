@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddHealthChecks();
-builder.Services.AddConsuleService();
+// builder.Services.AddConsuleService();
 // builder.Services.AddBuildingBlockConsulService(p =>
 //     {
 //         p.ServiceDiscoveryAddress = new Uri("http://localhost:8500");
@@ -31,6 +31,20 @@ builder.Services
 // builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+app.Lifetime.ApplicationStarted.Register(() =>
+{
+    Console.WriteLine("---------Application started---------");
+});
+
+app.Lifetime.ApplicationStopping.Register(() =>
+{
+    Console.WriteLine("+++++++++ Application Stopping +++++++++");
+});
+
+app.Lifetime.ApplicationStopped.Register(() =>
+{
+    Console.WriteLine("********* Application stopped *********");
+});
 
 app.UseSwaggerBuildingBlock(Environments.Development);
 // app.UseSwagger();
