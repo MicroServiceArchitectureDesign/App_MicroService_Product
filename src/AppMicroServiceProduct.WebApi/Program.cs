@@ -1,25 +1,24 @@
-using AppMicroServiceBuildingBlock.Contract.WebApiContracts.ConsulSetup;
 using AppMicroServiceBuildingBlock.Shared.Extensions.ApplicationBuilderExtensions;
 using AppMicroServiceBuildingBlock.Shared.Extensions.ServiceCollectionExtensions;
 using AppMicroServiceProduct.Application;
 using AppMicroServiceProduct.Infrastructure;
 using AppMicroServiceProduct.WebApi;
-using AppMicroServiceProduct.WebApi.ServiceDiscoverySetup;
-using Microsoft.OpenApi.Models;
+using AppMicroServiceBuildingBlock.Contract.WebApiContracts.ConsulSetup;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddHealthChecks();
 // builder.Services.AddConsuleService();
-// builder.Services.AddBuildingBlockConsulService(p =>
-//     {
-//         p.ServiceDiscoveryAddress = new Uri("http://localhost:8500");
-//         p.ServiceAddress = new Uri("https://localhost:7293");
-//         p.ServiceHealthCheckEndpoint = new Uri("https://localhost:7293/hc");
-//         p.ServiceName = "Products";
-//         p.ServiceId = "Products_{01}";
-//     });
+
+builder.Services.AddBuildingBlockConsulService(p =>
+    {
+        p.ServiceDiscoveryAddress = new Uri("http://localhost:8500");
+        p.ServiceAddress = new Uri("https://localhost:6001");
+        p.ServiceHealthCheckEndpoint = new Uri("https://localhost:6001/hc");
+        p.ServiceName = "Products";
+        p.ServiceId = "Products_{01}";
+    });
 
 builder.Services
     .AddApplicationServices()
@@ -27,31 +26,12 @@ builder.Services
     .AddWebApiServices();
 
 
- builder.Services.AddSwaggerBuildingBlock();
-// builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerBuildingBlock();
 
 var app = builder.Build();
-app.Lifetime.ApplicationStarted.Register(() =>
-{
-    Console.WriteLine("---------Application started---------");
-});
-
-app.Lifetime.ApplicationStopping.Register(() =>
-{
-    Console.WriteLine("+++++++++ Application Stopping +++++++++");
-});
-
-app.Lifetime.ApplicationStopped.Register(() =>
-{
-    Console.WriteLine("********* Application stopped *********");
-});
 
 app.UseSwaggerBuildingBlock(Environments.Development);
-// app.UseSwagger();
-// app.UseSwaggerUI(c =>
-// {
-//     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Product service v1");
-// });
+
 app.MapHealthChecks("/hc");
 app.UseHttpsRedirection();
 app.UseAuthorization();
