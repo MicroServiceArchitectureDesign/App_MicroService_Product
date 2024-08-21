@@ -3,27 +3,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMicroServiceProduct.Application", "src\AppMicroServiceProduct.Application\AppMicroServiceProduct.Application.csproj", "{A2BDCBE7-A23C-4629-83D9-219366111D0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppMicroServiceProduct.Application", "src\AppMicroServiceProduct.Application\AppMicroServiceProduct.Application.csproj", "{A2BDCBE7-A23C-4629-83D9-219366111D0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMicroServiceProduct.Domain", "src\AppMicroServiceProduct.Domain\AppMicroServiceProduct.Domain.csproj", "{1D147702-D5C9-4AB9-93C8-7602E7DEAFC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppMicroServiceProduct.Domain", "src\AppMicroServiceProduct.Domain\AppMicroServiceProduct.Domain.csproj", "{1D147702-D5C9-4AB9-93C8-7602E7DEAFC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMicroServiceProduct.Infrastructure", "src\AppMicroServiceProduct.Infrastructure\AppMicroServiceProduct.Infrastructure.csproj", "{A8A68A5F-0CDE-460C-A3BF-11AD0FE498ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppMicroServiceProduct.Infrastructure", "src\AppMicroServiceProduct.Infrastructure\AppMicroServiceProduct.Infrastructure.csproj", "{A8A68A5F-0CDE-460C-A3BF-11AD0FE498ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMicroServiceProduct.WebApi", "src\AppMicroServiceProduct.WebApi\AppMicroServiceProduct.WebApi.csproj", "{FF145458-88FE-4D8A-B2D0-BF35720310C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppMicroServiceProduct.WebApi", "src\AppMicroServiceProduct.WebApi\AppMicroServiceProduct.WebApi.csproj", "{FF145458-88FE-4D8A-B2D0-BF35720310C3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "building-block", "building-block", "{1DC052DF-AF98-4DA1-9C3D-E1746DD0EF52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMicroServiceBuildingBlock.Contract", "App_MicroService_BuildingBlock\src\AppMicroServiceBuildingBlock.Contract\AppMicroServiceBuildingBlock.Contract.csproj", "{0127015A-7D98-4C0A-81BD-CC3BA071A538}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppMicroServiceBuildingBlock.Contract", "App_MicroService_BuildingBlock\src\AppMicroServiceBuildingBlock.Contract\AppMicroServiceBuildingBlock.Contract.csproj", "{0127015A-7D98-4C0A-81BD-CC3BA071A538}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMicroServiceBuildingBlock.Shared", "App_MicroService_BuildingBlock\src\AppMicroServiceBuildingBlock.Shared\AppMicroServiceBuildingBlock.Shared.csproj", "{EC3C7A68-D0AC-4B23-8A30-779F9F58A51D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppMicroServiceBuildingBlock.Shared", "App_MicroService_BuildingBlock\src\AppMicroServiceBuildingBlock.Shared\AppMicroServiceBuildingBlock.Shared.csproj", "{EC3C7A68-D0AC-4B23-8A30-779F9F58A51D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-items", "{70AC7219-7B29-4FBA-A2CA-26864261E522}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A2BDCBE7-A23C-4629-83D9-219366111D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -51,8 +54,14 @@ Global
 		{EC3C7A68-D0AC-4B23-8A30-779F9F58A51D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC3C7A68-D0AC-4B23-8A30-779F9F58A51D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0127015A-7D98-4C0A-81BD-CC3BA071A538} = {1DC052DF-AF98-4DA1-9C3D-E1746DD0EF52}
 		{EC3C7A68-D0AC-4B23-8A30-779F9F58A51D} = {1DC052DF-AF98-4DA1-9C3D-E1746DD0EF52}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4E98EFC-11ED-43E8-9E5A-BE0485129979}
 	EndGlobalSection
 EndGlobal

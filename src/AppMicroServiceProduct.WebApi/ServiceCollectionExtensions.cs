@@ -1,40 +1,33 @@
-﻿using AppMicroServiceProduct.WebApi.ServiceDiscoverySetup;
-using Consul;
+﻿using AppMicroServiceBuildingBlock.Contract.WebApiContracts.ConsulSetup;
+using AppMicroServiceBuildingBlock.Shared.Extensions.ApplicationBuilderExtensions;
+using AppMicroServiceProduct.Application;
+using AppMicroServiceProduct.Infrastructure;
 
 namespace AppMicroServiceProduct.WebApi;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddWebApiServices(this IServiceCollection services)
+    public static IServiceCollection AddWebApiServices(this WebApplicationBuilder builder)
     {
-        //services.AddSingleton<IConsulClient, ConsulClient>(p => new ConsulClient(q =>
-        //{
-        //    q.Address = ServiceDiscoveryConfig.ServiceDiscoveryAddress;
-        //}));
-        return services;
-    }
+        var services = builder.Services;
 
-    public static IApplicationBuilder RegisterWithConsul(this WebApplication app)
-    {
-        IConsulClient consulClient = app.Services.GetRequiredService<IConsulClient>();
-       
-        var registerModel = new AgentServiceRegistration()
+        services.AddControllers();
+        services.AddHealthChecks();
+
+        services.AddBuildingBlockConsulService(p =>
         {
-            Name = ServiceDiscoveryConfig.ServiceName,
-            ID = ServiceDiscoveryConfig.ServiceId,
-            Address = ServiceDiscoveryConfig.ServiceAddress.Host,
-            Port = ServiceDiscoveryConfig.ServiceAddress.Port,
-        };
-        consulClient.Agent.ServiceRegister(registerModel).Wait();
-
-
-
-        app.Lifetime.ApplicationStopping.Register(() =>
-        {
-            consulClient.Agent.ServiceDeregister(ServiceDiscoveryConfig.ServiceId).Wait();
+            p.ServiceDiscoveryAddress = new Uri("http://consul:8500");
+            p.ServiceAddress = new Uri("https://localhost:5001");
+            p.ServiceHealthCheckEndpoint = new Uri("https://localhost:5001/hc");
+            p.ServiceName = "Products";
+            p.ServiceId = "Products_{01}";
         });
 
+        services
+            .AddApplicationServices()
+            .AddInfrastructureServices();
 
-        return app;
+        services.AddSwaggerBuildingBlock();
+        return services;
     }
 }
